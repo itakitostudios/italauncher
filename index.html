@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ItaLauncher 1.0 - Launcher de Minecraft</title>
+<style>
+:root{--a:#ff8a3d;--a2:#ffb347;--ink:#f2f4ff;--mut:#9aa3c7;--card:rgba(18,22,40,.72);--line:rgba(255,255,255,.1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 "Segoe UI",system-ui,sans-serif;color:var(--ink);background:radial-gradient(1200px 700px at 15% -10%,#2b3f7a 0%,transparent 60%),linear-gradient(160deg,#0c1126,#080b18 70%);min-height:100vh}
+a{color:var(--a)}
+header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 6vw;background:rgba(8,11,24,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font:700 22px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;color:var(--ink)}
+.brand i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--a),var(--a2));box-shadow:0 0 16px var(--a)}
+nav a{color:var(--mut);text-decoration:none;margin-left:18px;font-weight:600;font-size:15px}
+nav a:hover{color:var(--ink)}
+.hero{text-align:center;padding:90px 6vw 60px}
+.hero h1{font:700 52px Bahnschrift,"Segoe UI",sans-serif;margin:0 0 12px;letter-spacing:.01em}
+.hero h1 span{background:linear-gradient(90deg,var(--a),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);font-size:18px;max-width:640px;margin:0 auto}
+.btn{display:inline-block;margin-top:28px;padding:16px 36px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--a2));color:#1a1006;font:700 20px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.meta{margin-top:14px;color:var(--mut);font-size:14px}
+main{max-width:980px;margin:0 auto;padding:0 6vw 80px}
+section{margin-top:56px}
+h2{font:700 30px Bahnschrift,"Segoe UI",sans-serif;margin:0 0 16px;letter-spacing:.01em}
+h3{font:700 19px Bahnschrift,"Segoe UI",sans-serif;margin:0 0 6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;backdrop-filter:blur(12px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+ol,ul{padding-left:22px;margin:0}
+li{margin:8px 0}
+.num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--a);color:#1a1006;font-weight:700;margin-right:10px;flex:none}
+.step{display:flex;align-items:flex-start;margin:0 0 18px}
+.step div{flex:1}
+.step p{margin:4px 0 0;color:var(--mut)}
+code{background:rgba(255,255,255,.08);padding:2px 7px;border-radius:6px;font:14px Consolas,monospace;color:#ffd27a}
+.req td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.req td:first-child{font-weight:600;white-space:nowrap;width:180px;color:var(--ink)}
+.req td:last-child{color:var(--mut)}
+table{width:100%;border-collapse:collapse}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:rgba(255,138,61,.15);color:var(--a);margin-left:8px;vertical-align:middle}
+.note{border-left:4px solid #ffb74d;background:rgba(255,183,77,.08);padding:14px 18px;border-radius:10px;color:var(--ink);margin-top:14px}
+.note b{color:#ffd27a}
+footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#inicio"><i></i>ItaLauncher</a>
+  <nav>
+    <a href="#instalar">Instalar</a>
+    <a href="#requisitos">Requisitos</a>
+    <a href="#novedades">Novedades 1.0</a>
+    <a href="#notas">Notas</a>
+  </nav>
+</header>
+
+<div class="hero" id="inicio">
+  <h1>El launcher de Minecraft <span>que se configura a tu gusto</span></h1>
+  <p>Juega Vanilla, Fabric o Forge, instala mods desde Modrinth o CurseForge, guarda tus servidores y diagnostica los cierres del juego. Todo en una sola aplicación de escritorio.</p>
+  <a class="btn" href="gracias.html">Descargar ItaLauncher 1.0</a>
+  <div class="meta">Windows 10 / 11 de 64 bits · Versión 1.0 · Tamaño aprox. 80 MB</div>
+</div>
+
+<main>
+
+  <section id="instalar">
+    <h2>Cómo instalarlo</h2>
+    <div class="card">
+      <div class="step"><span class="num">1</span><div>
+        <h3>Descarga el archivo</h3>
+        <p>Usa el botón de arriba. Se descarga un archivo <code>.zip</code>.</p>
+      </div></div>
+      <div class="step"><span class="num">2</span><div>
+        <h3>Extráelo en una carpeta</h3>
+        <p>Clic derecho sobre el <code>.zip</code> → <b>Extraer todo</b>. Elige una carpeta donde tengas espacio libre, por ejemplo <code>D:\ItaLauncher</code>. No hace falta ser administrador.</p>
+      </div></div>
+      <div class="step"><span class="num">3</span><div>
+        <h3>Abre ItaLauncher.exe</h3>
+        <p>Entra a la carpeta extraída y haz doble clic en <code>ItaLauncher.exe</code>. La primera vez puede tardar unos segundos. Si aparece el aviso de Windows SmartScreen, pulsa <b>Más información</b> y después <b>Ejecutar de todas formas</b>.</p>
+      </div></div>
+      <div class="step"><span class="num">4</span><div>
+        <h3>Elige tu carpeta de juego y tu nombre</h3>
+        <p>En <b>Ajustes → Carpeta .minecraft</b> elige dónde se guardan las versiones, los mundos y los mods. En la pantalla de inicio, escribe tu nombre de usuario con el botón <b>+</b>.</p>
+      </div></div>
+      <div class="step"><span class="num">5</span><div>
+        <h3>Elige la versión y juega</h3>
+        <p>Ve a <b>Versiones</b>, elige el tipo (Vanilla, Fabric o Forge) y la versión. Vuelve a <b>Inicio</b> y pulsa <b>Jugar</b>. El launcher descarga todo lo necesario, incluido Java.</p>
+      </div></div>
+      <div class="step" style="margin-bottom:0"><span class="num">6</span><div>
+        <h3>Opcional: acceso directo e inicio con Windows</h3>
+        <p>Clic derecho sobre <code>ItaLauncher.exe</code> → <b>Enviar a</b> → <b>Escritorio (crear acceso directo)</b>. Para que se abra al encender la PC, activa <b>Iniciar ItaLauncher con Windows</b> en Ajustes.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="requisitos">
+    <h2>Requisitos</h2>
+    <div class="card">
+      <table class="req">
+        <tr><td>Sistema</td><td>Windows 10 u 11 de 64 bits.</td></tr>
+        <tr><td>Procesador</td><td>Cualquier CPU de 64 bits de dos núcleos o más.</td></tr>
+        <tr><td>Memoria RAM</td><td>4 GB en la PC para Minecraft 1.8.9 o versiones con pocos mods. Para 1.20.1 con muchos mods, se recomiendan 8 GB.</td></tr>
+        <tr><td>Gráficos</td><td>Compatible con OpenGL 3.2 o superior. Funciona con gráficas integradas, aunque con muchos mods conviene bajar la distancia de render.</td></tr>
+        <tr><td>Disco</td><td>Unos 5 GB libres para empezar. Cada versión de Minecraft ocupa entre 1 y 2 GB, y los mods suman más. Recomendado: 10 GB.</td></tr>
+        <tr><td>Internet</td><td>Necesario para descargar el juego, Java y los mods, y para consultar servidores.</td></tr>
+        <tr><td>Java</td><td>No hace falta instalarlo. El launcher descarga la versión correcta.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="novedades">
+    <h2>Novedades de la versión 1.0 <span class="tag">Primera versión</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Juego</h3>
+        <ul>
+          <li>Instalación de Minecraft Vanilla, Fabric y Forge.</li>
+          <li>Elección de versión con búsqueda, incluidas snapshots y versiones antiguas.</li>
+          <li>Memoria RAM independiente para cada versión.</li>
+          <li>Límite de FPS, tamaño de ventana y pantalla completa.</li>
+          <li>Argumentos extra de Java para usuarios avanzados.</li>
+          <li>Conexión directa a servidores guardados, con consulta de estado.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Mods</h3>
+        <ul>
+          <li>Búsqueda en <b>Modrinth</b> y <b>CurseForge</b>, con hasta 10 páginas por búsqueda.</li>
+          <li>Instalación de dependencias obligatorias de todos los niveles.</li>
+          <li>Los mods ya instalados aparecen marcados y no se pueden volver a instalar.</li>
+          <li>Activar, desactivar y quitar mods sin borrar archivos a mano.</li>
+          <li>Importar archivos <code>.jar</code> propios.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Diagnóstico</h3>
+        <ul>
+          <li>Analizador del último cierre del juego, con explicación en lenguaje simple.</li>
+          <li>Botones para aplicar la solución, como quitar un mod o subir la RAM.</li>
+          <li>Modo seguro: abre el juego sin mods para saber si el problema viene de ellos.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Launcher</h3>
+        <ul>
+          <li>Ventana de escritorio, sin consola ni barra de direcciones.</li>
+          <li>Cinco temas: Oscuro, Claro, Noche, Bosque y Atardecer, con color de acento propio.</li>
+          <li>Respaldo de mundos con un clic.</li>
+          <li>Exportar e importar la configuración para usarla en otra PC.</li>
+          <li>Limpieza de caché y cálculo del espacio ocupado.</li>
+          <li>Atajos de teclado: Ctrl+J para jugar y Ctrl+1 a Ctrl+5 para cambiar de sección.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="notas">
+    <h2>Notas importantes</h2>
+    <div class="card">
+      <h3>CurseForge necesita una clave</h3>
+      <p>Para buscar mods en CurseForge hay que pegar una clave de API gratuita en <b>Ajustes → Mods: CurseForge</b>. Se consigue en console.curseforge.com. Modrinth no necesita clave.</p>
+      <h3 style="margin-top:18px">Dónde se guardan tus datos</h3>
+      <p>La configuración (<code>config.json</code>) y las imágenes del menú se guardan junto a <code>ItaLauncher.exe</code>. Los juegos, mundos y mods se guardan en la carpeta .minecraft que elijas. Para desinstalar, borra la carpeta de la aplicación y, si quieres, también la de .minecraft.</p>
+      <h3 style="margin-top:18px">Aviso de Windows SmartScreen</h3>
+      <p>Como el programa no está firmado digitalmente, Windows puede mostrar una advertencia de "editor desconocido" la primera vez. Es normal. Descárgalo solo desde la página oficial.</p>
+      <h3 style="margin-top:18px">Cuentas</h3>
+      <p>ItaLauncher entra con el nombre de usuario que escribas, sin cuenta de Minecraft. Úsalo con servidores que acepten ese tipo de acceso, o si ya tienes cuenta oficial del juego, sabe que este launcher no la inicia.</p>
+      <h3 style="margin-top:18px">Mods en versiones antiguas</h3>
+      <p>Para Minecraft 1.8.9 hay menos mods disponibles que para versiones nuevas. Si la búsqueda muestra pocos resultados, prueba con 1.12.2 o 1.20.1.</p>
+      <div class="note"><b>Problemas conocidos en 1.0:</b> algunos mods pueden chocar entre sí. Si el juego se cierra, usa <b>Diagnóstico</b> para revisarlo. Los mods que instalaste antes de la versión 1.0 pueden no aparecer como instalados hasta que los vuelvas a instalar.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  ItaLauncher 1.0 · Hecho con cariño para jugar a Minecraft a tu manera.
+</footer>
+
+</body>
+</html>

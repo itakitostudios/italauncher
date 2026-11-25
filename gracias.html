@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gracias por instalar ItaLauncher</title>
+<style>
+:root{--a:#ff8a3d;--a2:#ffb347;--ink:#f2f4ff;--mut:#9aa3c7;--card:rgba(18,22,40,.72);--line:rgba(255,255,255,.1)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font:16px/1.6 "Segoe UI",system-ui,sans-serif;color:var(--ink);background:radial-gradient(1200px 700px at 15% -10%,#2b3f7a 0%,transparent 60%),linear-gradient(160deg,#0c1126,#080b18 70%);padding:60px 6vw}
+.wrap{max-width:760px;margin:0 auto}
+.heart{font-size:72px;color:#ff5a7a;display:block;text-align:center;animation:beat 1.4s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}60%{transform:scale(1)}}
+h1{font:700 40px Bahnschrift,"Segoe UI",sans-serif;text-align:center;margin:8px 0 6px}
+.lead{text-align:center;color:var(--mut);margin:0 0 34px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;margin-bottom:22px}
+h2{font:700 22px Bahnschrift,"Segoe UI",sans-serif;margin:0 0 12px}
+.btn{display:inline-block;padding:14px 28px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--a2));color:#1a1006;font:700 18px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.center{text-align:center}
+.status{color:var(--mut);margin-top:14px;font-size:14px}
+.where{display:flex;gap:18px;align-items:flex-start}
+.arrow{flex:none;font-size:54px;line-height:1;color:var(--a);animation:bob 1.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(0,0)}50%{transform:translate(6px,-6px)}}
+ol{margin:0;padding-left:22px}
+li{margin:8px 0}
+code{background:rgba(255,255,255,.08);padding:2px 7px;border-radius:6px;font:14px Consolas,monospace;color:#ffd27a}
+.muted{color:var(--mut)}
+.tip{border-left:4px solid #ffb74d;background:rgba(255,183,77,.08);padding:12px 16px;border-radius:10px;margin-top:14px}
+.back{color:var(--a)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="heart">♥</span>
+  <h1>Gracias por instalar ItaLauncher</h1>
+  <p class="lead">Tu descarga debería empezar sola. Si no empezó, usa el botón de abajo.</p>
+
+  <div class="card center">
+    <a class="btn" href="ItaLauncher-1.0.zip" download>Descargar de nuevo</a>
+    <div class="status" id="status">Preparando tu descarga...</div>
+  </div>
+
+  <div class="card">
+    <h2>¿Dónde quedó el archivo?</h2>
+    <div class="where">
+      <div class="arrow" aria-hidden="true">↗</div>
+      <div>
+        <p style="margin:0 0 10px">Mira el <b>icono de descargas</b> arriba a la derecha de tu navegador (la flechita hacia abajo).</p>
+        <p style="margin:0 0 10px">Ahí aparece <b>ItaLauncher-1.0.zip</b>. Pulsa <b>Mostrar en la carpeta</b> para abrir su ubicación.</p>
+        <p class="muted" style="margin:0">Por defecto se guarda en <code>C:\Users\TU_USUARIO\Downloads</code>, la carpeta Descargas de tu usuario de Windows.</p>
+      </div>
+    </div>
+    <div class="tip">Si no ves el icono, pulsa <code>Ctrl + J</code> en Chrome, Edge o Brave para abrir el panel de descargas.</div>
+  </div>
+
+  <div class="card">
+    <h2>Cómo instalarlo</h2>
+    <ol>
+      <li>Clic derecho sobre <code>ItaLauncher-1.0.zip</code> → <b>Extraer todo</b>. Elige una carpeta con espacio libre, por ejemplo <code>D:\ItaLauncher</code>.</li>
+      <li>Entra a la carpeta extraída y abre <code>ItaLauncher.exe</code>.</li>
+      <li>Si aparece el aviso de Windows SmartScreen, pulsa <b>Más información</b> y después <b>Ejecutar de todas formas</b>.</li>
+      <li>En <b>Ajustes → Carpeta .minecraft</b> elige dónde guardar tus juegos y mods.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>¿No te dejó descargar?</h2>
+    <ul class="muted" style="margin:0;padding-left:22px">
+      <li>Revisa que tengas internet y espacio libre en disco (unos 100 MB).</li>
+      <li>Permite las descargas si tu navegador lo pide.</li>
+      <li>Si tu antivirus bloquea el archivo, agrega una excepción para la descarga.</li>
+    </ul>
+    <p class="center" style="margin:18px 0 0"><a class="btn" href="ItaLauncher-1.0.zip" download>Descargar de nuevo</a></p>
+  </div>
+
+  <p class="center muted"><a class="back" href="index.html">← Volver a la página principal</a></p>
+</div>
+<script>
+// Arranca la descarga sola al abrir la página
+window.addEventListener('load', () => {
+  const a = document.createElement('a');
+  a.href = 'ItaLauncher-1.0.zip';
+  a.download = 'ItaLauncher-1.0.zip';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  document.getElementById('status').textContent = 'Si la descarga no empezó, usa el botón de arriba.';
+});
+</script>
+</body>
+</html>
