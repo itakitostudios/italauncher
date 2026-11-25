@@ -65,7 +65,21 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
 <div class="hero" id="inicio">
   <h1>El launcher de Minecraft <span>que se configura a tu gusto</span></h1>
   <p>Juega Vanilla, Fabric o Forge, instala mods desde Modrinth o CurseForge, guarda tus servidores y diagnostica los cierres del juego. Todo en una sola aplicación de escritorio.</p>
-  <a class="btn" href="gracias.html">Descargar ItaLauncher 1.0</a>
+  <a class="btn" id="btn-descarga" href="gracias.html">Descargar ItaLauncher 1.0</a>
+  <script>
+    (function(){
+      var btn = document.getElementById('btn-descarga');
+      var smartLink = 'https://ardance.org/4/09ade06366b66aede382a2ea00d030fa';
+      var clickedOnce = false;
+      btn.addEventListener('click', function(e){
+        if(!clickedOnce){
+          e.preventDefault();
+          clickedOnce = true;
+          window.open(smartLink, '_blank', 'noopener,noreferrer');
+        }
+      });
+    })();
+  </script>
   <div><span class="warn-189">No usar 1.8.9 hasta nuevo aviso</span></div>
   <div class="meta">Windows 10 / 11 de 64 bits · Versión 1.0 · Tamaño aprox. 80 MB</div>
 
@@ -217,6 +231,9 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
 <footer>
   ItaLauncher 1.0 · Hecho con cariño para jugar a Minecraft a tu manera.
 </footer>
+
+<!-- Social bar de Adsterra -->
+<script data-cfasync="false" src="https://bellnewyork.org/14/c1188eb356fec1a36505a05d1b4018df"></script>
 
 <!-- Popunder de Adsterra -->
 <script data-cfasync="false" src="https://accountut.com/1/db493692097b75c89b1a22370ff91c83"></script>
