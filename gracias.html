@@ -36,7 +36,7 @@ code{background:rgba(255,255,255,.08);padding:2px 7px;border-radius:6px;font:14p
   <p class="lead">Tu descarga debería empezar sola. Si no empezó, usa el botón de abajo.</p>
 
   <div class="card center">
-    <a class="btn" href="https://github.com/itakitostudios/italauncher/releases/download/1.0.2/ItaLauncher-1.0.2.zip" download>Descargar de nuevo</a>
+    <a class="btn" href="https://github.com/itakitostudios/italauncher/archive/refs/tags/1.0.2.zip" download>Descargar de nuevo</a>
     <div class="status" id="status">Preparando tu descarga...</div>
   </div>
 
@@ -70,7 +70,7 @@ code{background:rgba(255,255,255,.08);padding:2px 7px;border-radius:6px;font:14p
       <li>Permite las descargas si tu navegador lo pide.</li>
       <li>Si tu antivirus bloquea el archivo, agrega una excepción para la descarga.</li>
     </ul>
-    <p class="center" style="margin:18px 0 0"><a class="btn" href="https://github.com/itakitostudios/italauncher/releases/download/1.0.2/ItaLauncher-1.0.2.zip" download>Descargar de nuevo</a></p>
+    <p class="center" style="margin:18px 0 0"><a class="btn" href="https://github.com/itakitostudios/italauncher/archive/refs/tags/1.0.2.zip" download>Descargar de nuevo</a></p>
   </div>
 
   <p class="center muted"><a class="back" href="index.html">← Volver a la página principal</a></p>
@@ -79,7 +79,7 @@ code{background:rgba(255,255,255,.08);padding:2px 7px;border-radius:6px;font:14p
 // Arranca la descarga sola al abrir la página
 window.addEventListener('load', () => {
   const a = document.createElement('a');
-  a.href = 'https://github.com/itakitostudios/italauncher/releases/download/1.0.2/ItaLauncher-1.0.2.zip';
+  a.href = 'https://github.com/itakitostudios/italauncher/archive/refs/tags/1.0.2.zip';
   a.download = 'ItaLauncher-1.0.2.zip';
   document.body.appendChild(a);
   a.click();
