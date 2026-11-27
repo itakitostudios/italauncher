@@ -5,23 +5,42 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ItaLauncher 1.0.2 - Launcher de Minecraft</title>
 <style>
-:root{--a:#ff8a3d;--a2:#ffb347;--ink:#f2f4ff;--mut:#9aa3c7;--card:rgba(18,22,40,.72);--line:rgba(255,255,255,.1)}
+:root{--a:#ff8a3d;--a2:#ffb347;--ink:#f2f4ff;--mut:#9aa3c7;--card:rgba(18,22,40,.72);--line:rgba(255,255,255,.1);--red:#ff5a5a}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font:16px/1.6 "Segoe UI",system-ui,sans-serif;color:var(--ink);background:radial-gradient(1200px 700px at 15% -10%,#2b3f7a 0%,transparent 60%),linear-gradient(160deg,#0c1126,#080b18 70%);min-height:100vh}
 a{color:var(--a)}
+
+/* ---- Alerta de seguridad al entrar ---- */
+#alerta{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(3,5,12,.82);backdrop-filter:blur(6px);animation:fadeIn .4s ease}
+#alerta .caja{width:min(560px,100%);background:#1a0f14;border:2px solid var(--red);border-radius:18px;padding:30px 28px;text-align:center;box-shadow:0 0 60px rgba(255,90,90,.35);animation:entrada .6s cubic-bezier(.2,1.4,.4,1)}
+#alerta .icono{font-size:64px;line-height:1;color:var(--red);display:block;animation:pulso 1.2s ease-in-out infinite}
+#alerta h2{font:800 34px Bahnschrift,"Segoe UI",sans-serif;color:var(--red);margin:10px 0 6px;letter-spacing:.02em}
+#alerta .sub{font-size:17px;color:#ffd2d2;margin:0 0 14px;font-weight:600}
+#alerta ul{text-align:left;color:#ffe3e3;margin:0 0 18px;padding-left:22px;font-size:15px}
+#alerta li{margin:6px 0}
+#alerta .btn-ok{padding:12px 28px;border:0;border-radius:10px;background:var(--red);color:#fff;font:700 16px "Segoe UI",sans-serif;cursor:pointer}
+#alerta .btn-ok:hover{filter:brightness(1.1)}
+#alerta.oculta{animation:fadeOut .3s ease forwards}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeOut{to{opacity:0;visibility:hidden}}
+@keyframes entrada{0%{transform:scale(.6) translateY(-30px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
+@keyframes pulso{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+
+/* ---- Resto de la página ---- */
+.aviso-pagina{max-width:880px;margin:24px auto 0;padding:14px 18px;border-radius:12px;border:1px solid rgba(255,90,90,.5);background:rgba(255,90,90,.12);color:#ffd2d2;text-align:left}
+.aviso-pagina a{color:#ffd27a}
 header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 6vw;background:rgba(8,11,24,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;font:700 22px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;color:var(--ink)}
 .brand i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--a),var(--a2));box-shadow:0 0 16px var(--a)}
 nav a{color:var(--mut);text-decoration:none;margin-left:18px;font-weight:600;font-size:15px}
 nav a:hover{color:var(--ink)}
-.hero{text-align:center;padding:90px 6vw 60px}
+.hero{text-align:center;padding:60px 6vw 60px}
 .hero h1{font:700 52px Bahnschrift,"Segoe UI",sans-serif;margin:0 0 12px;letter-spacing:.01em}
 .hero h1 span{background:linear-gradient(90deg,var(--a),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{color:var(--mut);font-size:18px;max-width:640px;margin:0 auto}
-.btn{display:inline-block;margin-top:28px;padding:16px 36px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--a2));color:#1a1006;font:700 20px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .15s,filter .15s;cursor:pointer;border:0}
-.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
-.dl-hint{max-width:560px;margin:14px auto 0;color:var(--mut);font-size:14px}
+.btn{display:inline-block;margin-top:28px;padding:16px 36px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--a2));color:#1a1006;font:700 20px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
 .meta{margin-top:12px;color:var(--mut);font-size:14px}
 .ad{margin:28px auto 0;min-height:90px;max-width:728px;display:flex;justify-content:center}
 main{max-width:980px;margin:0 auto;padding:0 6vw 80px}
@@ -52,6 +71,23 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
 </head>
 <body>
 
+<!-- Alerta de seguridad: aparece al entrar -->
+<div id="alerta" role="dialog" aria-modal="true" aria-labelledby="alerta-titulo">
+  <div class="caja">
+    <span class="icono" aria-hidden="true">⚠</span>
+    <h2 id="alerta-titulo">¡ALERTA!</h2>
+    <p class="sub">No uses las versiones 26 de Minecraft sin revisar tus resource packs.</p>
+    <ul>
+      <li>Se detectó una vulnerabilidad en las veriones 1.20.5 - 1.21.11 en la conexion
+      </li>De Servidores y Instalaciones de Resource Packs</li>
+      <li>Usa solo resource packs de confianza.</li>
+      <li>Únete solo a servidores de confianza.</li>
+      <li>No instales mods con nombres como <b>Minecraft2Shell</b>.</li>
+    </ul>
+    <button class="btn-ok" id="alerta-ok">Entendido</button>
+  </div>
+</div>
+
 <header>
   <a class="brand" href="#inicio"><i></i>ItaLauncher</a>
   <nav>
@@ -65,10 +101,7 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
 <div class="hero" id="inicio">
   <h1>El launcher de Minecraft <span>que se configura a tu gusto</span></h1>
   <p>Juega Vanilla, Fabric o Forge, instala mods desde Modrinth o CurseForge, guarda tus servidores y diagnostica los cierres del juego. Todo en una sola aplicación de escritorio.</p>
-
-  <a class="btn" id="btn-descarga" href="gracias.html">Descargar ItaLauncher 1.0.2</a>
-  <p class="dl-hint" id="dl-hint">Al pulsar Descargar se abrirá un enlace de patrocinador en otra pestaña. Ciérrala y vuelve a pulsar el botón para descargar el launcher.</p>
-
+  <a class="btn" href="gracias.html">Descargar ItaLauncher 1.0.2</a>
   <div class="meta">Windows 10 / 11 de 64 bits · Versión 1.0.2 · Tamaño aprox. 80 MB</div>
 
   <div class="ad">
@@ -83,6 +116,10 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
     </script>
     <script data-cfasync="false" src="https://bellnewyork.org/22/40f2123eccc5341f9d5e91fdb36d300d"></script>
   </div>
+</div>
+
+<div class="aviso-pagina" style="margin:0 6vw">
+  <b>⚠ Seguridad:</b> no aceptes resource packs ni texture packs de servidores o sitios que no conozcas. Más información: <a href="https://wurst.wiki/minecraft2shell" target="_blank" rel="noopener">wurst.wiki/minecraft2shell</a>.
 </div>
 
 <main>
@@ -100,7 +137,7 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
       </div></div>
       <div class="step"><span class="num">3</span><div>
         <h3>Abre ItaLauncher.exe</h3>
-        <p>Entra a la carpeta extraída y haz doble clic en <code>ItaLauncher.exe</code>. La primera vez puede tardar unos segundos. Si aparece el aviso de Windows SmartScreen, pulsa <b>Más información</b> y después <b>Ejecutar de todas formas</b>.</p>
+        <p>Entra a la carpeta extraída (<code>ItaLauncher-win32-x64</code>) y haz doble clic en <code>ItaLauncher.exe</code>. Si aparece el aviso de Windows SmartScreen, pulsa <b>Más información</b> y después <b>Ejecutar de todas formas</b>.</p>
       </div></div>
       <div class="step"><span class="num">4</span><div>
         <h3>Elige tu carpeta de juego y tu nombre</h3>
@@ -138,7 +175,7 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
   </section>
 
   <section id="novedades">
-    <h2>Novedades de la versión 1.0.2 <span class="tag">Primera versión pública</span></h2>
+    <h2>Novedades de la versión 1.0.2 <span class="tag">Corrección</span></h2>
     <div class="grid">
       <div class="card">
         <h3>Juego</h3>
@@ -186,7 +223,9 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
   <section id="notas">
     <h2>Notas importantes</h2>
     <div class="card">
-      <h3>CurseForge necesita una clave</h3>
+      <h3>Seguridad</h3>
+      <p>ItaLauncher no activa resource packs automáticamente. Aun así, no aceptes packs de servidores o sitios que no conozcas, y no instales mods con nombres sospechosos.</p>
+      <h3 style="margin-top:18px">CurseForge necesita una clave</h3>
       <p>Para buscar mods en CurseForge hay que pegar una clave de API gratuita en <b>Ajustes → Mods: CurseForge</b>. Se consigue en console.curseforge.com. Modrinth no necesita clave.</p>
       <h3 style="margin-top:18px">Dónde se guardan tus datos</h3>
       <p>La configuración (<code>config.json</code>) y las imágenes del menú se guardan junto a <code>ItaLauncher.exe</code>. Los juegos, mundos y mods se guardan en la carpeta .minecraft que elijas. Para desinstalar, borra la carpeta de la aplicación y, si quieres, también la de .minecraft.</p>
@@ -194,9 +233,7 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
       <p>Como el programa no está firmado digitalmente, Windows puede mostrar una advertencia de "editor desconocido" la primera vez. Es normal. Descárgalo solo desde la página oficial.</p>
       <h3 style="margin-top:18px">Cuentas</h3>
       <p>ItaLauncher entra con el nombre de usuario que escribas, sin cuenta de Minecraft. Úsalo con servidores que acepten ese tipo de acceso, o si ya tienes cuenta oficial del juego, sabe que este launcher no la inicia.</p>
-      <h3 style="margin-top:18px">Mods en versiones antiguas</h3>
-      <p>Para Minecraft 1.8.9 hay menos mods disponibles que para versiones nuevas. Si la búsqueda muestra pocos resultados, prueba con 1.12.2 o 1.20.1.</p>
-      <div class="note"><b>Problemas conocidos:</b> algunos mods pueden chocar entre sí. Si el juego se cierra, usa <b>Diagnóstico</b> para revisarlo. Los mods que instalaste antes de esta versión pueden no aparecer como instalados hasta que los vuelvas a instalar.</div>
+      <div class="note"><b>Problemas conocidos:</b> algunos mods pueden chocar entre sí. Si el juego se cierra, usa <b>Diagnóstico</b> para revisarlo.</div>
     </div>
   </section>
 
@@ -226,22 +263,17 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
 <!-- Popunder de Adsterra -->
 <script data-cfasync="false" src="https://accountut.com/1/db493692097b75c89b1a22370ff91c83"></script>
 
-<!-- Botón de descarga: el primer clic abre el enlace del patrocinador, el segundo descarga -->
 <script>
+// Cierra la alerta con animación de salida
 (function(){
-  var btn = document.getElementById('btn-descarga');
-  var hint = document.getElementById('dl-hint');
-  var smartLink = 'https://ardance.org/4/09ade06366b66aede382a2ea00d030fa';
-  var step = 0;
-  btn.addEventListener('click', function(e){
-    if (step === 0) {
-      e.preventDefault();
-      step = 1;
-      window.open(smartLink, '_blank', 'noopener,noreferrer');
-      btn.textContent = 'Pulsa otra vez para descargar';
-      hint.textContent = 'Listo. Cierra la pestaña que se abrió y vuelve a pulsar el botón para descargar ItaLauncher.';
-    }
-  });
+  var alerta = document.getElementById('alerta');
+  var ok = document.getElementById('alerta-ok');
+  function cerrar(){
+    alerta.classList.add('oculta');
+    setTimeout(function(){ alerta.style.display = 'none'; }, 300);
+  }
+  ok.addEventListener('click', cerrar);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cerrar(); });
 })();
 </script>
 
