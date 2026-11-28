@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ItaLauncher 1.0.2 - Launcher de Minecraft</title>
-<meta name="description" content="ItaLauncher: launcher gratis de Minecraft para Windows con mods de Modrinth y CurseForge, diagnóstico de cierres y modo seguro.">
+<meta name="description" content="ItaLauncher: launcher gratis de Minecraft para Windows y Linux con mods de Modrinth y CurseForge, diagnóstico de cierres y modo seguro.">
 <style>
 :root{--a:#ff8a3d;--a2:#ffb347;--ink:#f2f4ff;--mut:#9aa3c7;--card:rgba(18,22,40,.72);--line:rgba(255,255,255,.1);--red:#ff5a5a}
 *{box-sizing:border-box}
@@ -12,7 +12,7 @@ html{scroll-behavior:smooth}
 body{margin:0;font:16px/1.6 "Segoe UI",system-ui,sans-serif;color:var(--ink);background:radial-gradient(1200px 700px at 15% -10%,#2b3f7a 0%,transparent 60%),linear-gradient(160deg,#0c1126,#080b18 70%);min-height:100vh}
 a{color:var(--a)}
 
-/* ---- Alerta de seguridad al entrar ---- */
+/* Alerta de seguridad al entrar */
 #alerta{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(3,5,12,.82);backdrop-filter:blur(6px);animation:fadeIn .4s ease}
 #alerta .caja{width:min(560px,100%);background:#1a0f14;border:2px solid var(--red);border-radius:18px;padding:30px 28px;text-align:center;box-shadow:0 0 60px rgba(255,90,90,.35);animation:entrada .6s cubic-bezier(.2,1.4,.4,1)}
 #alerta .icono{font-size:64px;line-height:1;color:var(--red);display:block;animation:pulso 1.2s ease-in-out infinite}
@@ -28,30 +28,33 @@ a{color:var(--a)}
 @keyframes entrada{0%{transform:scale(.6) translateY(-30px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
 @keyframes pulso{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
 
-/* ---- Cabecera ---- */
+/* Cabecera */
 header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 6vw;background:rgba(8,11,24,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;font:700 22px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;color:var(--ink)}
 .brand i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--a),var(--a2));box-shadow:0 0 16px var(--a)}
 nav a{color:var(--mut);text-decoration:none;margin-left:18px;font-weight:600;font-size:15px}
 nav a:hover{color:var(--ink)}
 
-/* ---- Hero con dos columnas ---- */
+/* Hero con dos columnas */
 .hero{max-width:1100px;margin:0 auto;padding:60px 6vw 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .hero-texto h1{font:700 48px Bahnschrift,"Segoe UI",sans-serif;margin:0 0 14px;letter-spacing:.01em;text-align:left;line-height:1.1}
 .hero-texto h1 span{background:linear-gradient(90deg,var(--a),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero-texto p{color:var(--mut);font-size:18px;margin:0 0 4px}
-.btn{display:inline-block;margin-top:24px;padding:16px 36px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--a2));color:#1a1006;font:700 20px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .15s}
+.botones{display:flex;flex-direction:column;gap:12px;margin-top:24px;align-items:flex-start}
+.btn{display:inline-block;padding:16px 36px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--a2));color:#1a1006;font:700 20px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
-.meta{margin-top:12px;color:var(--mut);font-size:14px}
+.btn-linux{display:inline-block;padding:12px 28px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink);font:700 16px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;transition:background .15s}
+.btn-linux:hover{background:rgba(255,255,255,.14)}
+.meta{margin-top:4px;color:var(--mut);font-size:14px}
 .hero-imagen{display:flex;justify-content:center}
 .hero-imagen img{width:100%;max-width:520px;border-radius:14px;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.45)}
 
-/* ---- Aviso y anuncios ---- */
+/* Aviso y anuncios */
 .aviso-pagina{max-width:1100px;margin:0 auto;padding:14px 18px;border-radius:12px;border:1px solid rgba(255,90,90,.5);background:rgba(255,90,90,.12);color:#ffd2d2;text-align:left}
 .aviso-pagina a{color:#ffd27a}
 .ad{margin:28px auto 0;min-height:90px;max-width:728px;display:flex;justify-content:center}
 
-/* ---- Contenido ---- */
+/* Contenido */
 main{max-width:980px;margin:0 auto;padding:0 6vw 80px}
 section{margin-top:56px}
 h2{font:700 30px Bahnschrift,"Segoe UI",sans-serif;margin:0 0 16px;letter-spacing:.01em}
@@ -84,6 +87,7 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
 @media(max-width:800px){
   .hero{grid-template-columns:1fr;text-align:center}
   .hero-texto h1{text-align:center;font-size:38px}
+  .botones{align-items:center}
   nav a{margin-left:10px;font-size:14px}
 }
 </style>
@@ -120,8 +124,11 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
   <div class="hero-texto">
     <h1>ItaLauncher <span>el launcher de Minecraft que se configura a tu gusto</span></h1>
     <p>Juega Vanilla, Fabric o Forge, instala mods desde Modrinth o CurseForge, guarda tus servidores y diagnostica los cierres del juego. Todo en una sola aplicación de escritorio.</p>
-    <a class="btn" href="gracias.html">Descargar ItaLauncher 1.0.2</a>
-    <div class="meta">Windows 10 / 11 de 64 bits · Versión 1.0.2 · Tamaño aprox. 80 MB</div>
+    <div class="botones">
+      <a class="btn" href="gracias.html">Descargar para Windows</a>
+      <a class="btn-linux" href="https://github.com/itakitostudios/italauncher/releases/download/1.0.2-linux/ItaLauncher-1.0.2-linux-x64.tar.gz" download>Descargar para Linux</a>
+    </div>
+    <div class="meta">Windows 10 / 11 de 64 bits o Linux de 64 bits · Versión 1.0.2</div>
   </div>
   <div class="hero-imagen">
     <img src="https://i.imgur.com/aSoviWn.png" alt="Pantalla de inicio de ItaLauncher">
@@ -151,29 +158,28 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
   <section id="instalar">
     <h2>Cómo instalarlo</h2>
     <div class="card">
+      <h3 style="margin-bottom:12px">En Windows</h3>
       <div class="step"><span class="num">1</span><div>
         <h3>Descarga el archivo</h3>
-        <p>Usa el botón de arriba. Se descarga un archivo <code>.zip</code>.</p>
+        <p>Usa el botón de Windows. Se descarga un archivo <code>.zip</code>.</p>
       </div></div>
       <div class="step"><span class="num">2</span><div>
-        <h3>Extráelo en una carpeta</h3>
-        <p>Clic derecho sobre el <code>.zip</code> → <b>Extraer todo</b>. Elige una carpeta con espacio libre, por ejemplo <code>D:\ItaLauncher</code>. No hace falta ser administrador.</p>
+        <h3>Extráelo y abre el launcher</h3>
+        <p>Clic derecho → <b>Extraer todo</b>. Entra a <code>ItaLauncher-win32-x64</code> y abre <code>ItaLauncher.exe</code>. Si aparece SmartScreen, pulsa <b>Más información</b> → <b>Ejecutar de todas formas</b>.</p>
       </div></div>
-      <div class="step"><span class="num">3</span><div>
-        <h3>Abre ItaLauncher.exe</h3>
-        <p>Entra a la carpeta extraída (<code>ItaLauncher-win32-x64</code>) y haz doble clic en <code>ItaLauncher.exe</code>. Si aparece el aviso de Windows SmartScreen, pulsa <b>Más información</b> y después <b>Ejecutar de todas formas</b>.</p>
+
+      <h3 style="margin:24px 0 12px">En Linux</h3>
+      <div class="step"><span class="num">1</span><div>
+        <h3>Descarga el archivo</h3>
+        <p>Usa el botón de Linux. Se descarga <code>ItaLauncher-1.0.2-linux-x64.tar.gz</code>.</p>
       </div></div>
-      <div class="step"><span class="num">4</span><div>
-        <h3>Elige tu carpeta de juego y tu nombre</h3>
-        <p>En <b>Ajustes → Carpeta .minecraft</b> elige dónde se guardan las versiones, los mundos y los mods. En la pantalla de inicio, escribe tu nombre de usuario con el botón <b>+</b>.</p>
+      <div class="step"><span class="num">2</span><div>
+        <h3>Descomprime y ejecuta</h3>
+        <p>En la terminal: <code>tar -xzf ItaLauncher-1.0.2-linux-x64.tar.gz</code>, luego <code>cd ItaLauncher-linux-x64</code> y <code>./ItaLauncher</code>.</p>
       </div></div>
-      <div class="step"><span class="num">5</span><div>
-        <h3>Elige la versión y juega</h3>
-        <p>Ve a <b>Versiones</b>, elige el tipo (Vanilla, Fabric o Forge) y la versión. Vuelve a <b>Inicio</b> y pulsa <b>Jugar</b>. El launcher descarga todo lo necesario, incluido Java.</p>
-      </div></div>
-      <div class="step" style="margin-bottom:0"><span class="num">6</span><div>
-        <h3>Opcional: acceso directo e inicio con Windows</h3>
-        <p>Clic derecho sobre <code>ItaLauncher.exe</code> → <b>Enviar a</b> → <b>Escritorio (crear acceso directo)</b>. Para que se abra al encender la PC, activa <b>Iniciar ItaLauncher con Windows</b> en Ajustes.</p>
+      <div class="step" style="margin-bottom:0"><span class="num">3</span><div>
+        <h3>Elige tu nombre y juega</h3>
+        <p>Escribe tu usuario con el botón <b>+</b>, elige la versión en <b>Versiones</b> y pulsa <b>Jugar</b>. El launcher descarga todo lo necesario, incluido Java.</p>
       </div></div>
     </div>
   </section>
@@ -183,7 +189,7 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
     <div class="card">
       <details>
         <summary>¿Es seguro?</summary>
-        <p>ItaLauncher no activa resource packs automáticamente, pide confirmación antes de instalar cualquier mod y no envía tus datos a nadie. Aun así, no aceptes packs de servidores o sitios que no conozcas. El código del launcher es visible para revisarlo.</p>
+        <p>ItaLauncher no activa resource packs automáticamente, pide confirmación antes de instalar cualquier mod y no envía tus datos a nadie. Aun así, no aceptes packs de servidores o sitios que no conozcas.</p>
       </details>
       <details>
         <summary>¿Necesito cuenta de Minecraft?</summary>
@@ -191,11 +197,11 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
       </details>
       <details>
         <summary>¿Por qué sale el aviso de SmartScreen?</summary>
-        <p>Porque el programa no está firmado digitalmente todavía. Es normal en programas nuevos. Pulsa <b>Más información</b> → <b>Ejecutar de todas formas</b>.</p>
+        <p>Porque el programa todavía no está firmado digitalmente. Es normal en programas nuevos. Pulsa <b>Más información</b> → <b>Ejecutar de todas formas</b>.</p>
       </details>
       <details>
-        <summary>¿Funciona en Mac o Linux?</summary>
-        <p>Por ahora solo en Windows 10 y 11 de 64 bits.</p>
+        <summary>¿Funciona en Linux?</summary>
+        <p>Sí, se publica una versión para Linux de 64 bits. Como no se ha probado en todas las distribuciones, si algo falla, avísanos.</p>
       </details>
       <details>
         <summary>¿Necesito instalar Java?</summary>
@@ -207,7 +213,7 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
       </details>
       <details>
         <summary>¿Dónde se guardan mis datos?</summary>
-        <p>La configuración se guarda junto a <code>ItaLauncher.exe</code>. Los juegos, mundos y mods se guardan en la carpeta .minecraft que elijas.</p>
+        <p>La configuración se guarda junto al launcher. Los juegos, mundos y mods se guardan en la carpeta .minecraft que elijas.</p>
       </details>
       <details>
         <summary>¿Cómo busco mods de CurseForge?</summary>
@@ -224,12 +230,12 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
     <h2>Requisitos</h2>
     <div class="card">
       <table class="req">
-        <tr><td>Sistema</td><td>Windows 10 u 11 de 64 bits.</td></tr>
+        <tr><td>Sistema</td><td>Windows 10 u 11, o Linux de 64 bits.</td></tr>
         <tr><td>Procesador</td><td>Cualquier CPU de 64 bits de dos núcleos o más.</td></tr>
         <tr><td>Memoria RAM</td><td>4 GB en la PC para Minecraft 1.8.9 o versiones con pocos mods. Para 1.20.1 con muchos mods, se recomiendan 8 GB.</td></tr>
-        <tr><td>Gráficos</td><td>Compatible con OpenGL 3.2 o superior. Funciona con gráficas integradas, aunque con muchos mods conviene bajar la distancia de render.</td></tr>
-        <tr><td>Disco</td><td>Unos 5 GB libres para empezar. Cada versión de Minecraft ocupa entre 1 y 2 GB, y los mods suman más. Recomendado: 10 GB.</td></tr>
-        <tr><td>Internet</td><td>Necesario para descargar el juego, Java y los mods, y para consultar servidores.</td></tr>
+        <tr><td>Gráficos</td><td>Compatible con OpenGL 3.2 o superior. Funciona con gráficas integradas.</td></tr>
+        <tr><td>Disco</td><td>Unos 5 GB libres para empezar. Recomendado: 10 GB.</td></tr>
+        <tr><td>Internet</td><td>Necesario para descargar el juego, Java y los mods.</td></tr>
         <tr><td>Java</td><td>No hace falta instalarlo. El launcher descarga la versión correcta.</td></tr>
       </table>
     </div>
@@ -245,6 +251,7 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
           <li>Memoria RAM independiente para cada versión.</li>
           <li>Límite de FPS, tamaño de ventana y pantalla completa.</li>
           <li>Conexión directa a servidores guardados, con consulta de estado.</li>
+          <li>Versión para Windows y para Linux.</li>
         </ul>
       </div>
       <div class="card">
