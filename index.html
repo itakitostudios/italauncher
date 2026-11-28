@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ItaLauncher 1.0.2 - Launcher de Minecraft</title>
+<meta name="description" content="ItaLauncher: launcher gratis de Minecraft para Windows con mods de Modrinth y CurseForge, diagnóstico de cierres y modo seguro.">
 <style>
 :root{--a:#ff8a3d;--a2:#ffb347;--ink:#f2f4ff;--mut:#9aa3c7;--card:rgba(18,22,40,.72);--line:rgba(255,255,255,.1);--red:#ff5a5a}
 *{box-sizing:border-box}
@@ -27,22 +28,30 @@ a{color:var(--a)}
 @keyframes entrada{0%{transform:scale(.6) translateY(-30px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
 @keyframes pulso{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
 
-/* ---- Resto de la página ---- */
-.aviso-pagina{max-width:880px;margin:24px auto 0;padding:14px 18px;border-radius:12px;border:1px solid rgba(255,90,90,.5);background:rgba(255,90,90,.12);color:#ffd2d2;text-align:left}
-.aviso-pagina a{color:#ffd27a}
+/* ---- Cabecera ---- */
 header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 6vw;background:rgba(8,11,24,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;font:700 22px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;color:var(--ink)}
 .brand i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--a),var(--a2));box-shadow:0 0 16px var(--a)}
 nav a{color:var(--mut);text-decoration:none;margin-left:18px;font-weight:600;font-size:15px}
 nav a:hover{color:var(--ink)}
-.hero{text-align:center;padding:60px 6vw 60px}
-.hero h1{font:700 52px Bahnschrift,"Segoe UI",sans-serif;margin:0 0 12px;letter-spacing:.01em}
-.hero h1 span{background:linear-gradient(90deg,var(--a),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{color:var(--mut);font-size:18px;max-width:640px;margin:0 auto}
-.btn{display:inline-block;margin-top:28px;padding:16px 36px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--a2));color:#1a1006;font:700 20px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .15s}
+
+/* ---- Hero con dos columnas ---- */
+.hero{max-width:1100px;margin:0 auto;padding:60px 6vw 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero-texto h1{font:700 48px Bahnschrift,"Segoe UI",sans-serif;margin:0 0 14px;letter-spacing:.01em;text-align:left;line-height:1.1}
+.hero-texto h1 span{background:linear-gradient(90deg,var(--a),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-texto p{color:var(--mut);font-size:18px;margin:0 0 4px}
+.btn{display:inline-block;margin-top:24px;padding:16px 36px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--a2));color:#1a1006;font:700 20px Bahnschrift,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
 .meta{margin-top:12px;color:var(--mut);font-size:14px}
+.hero-imagen{display:flex;justify-content:center}
+.hero-imagen img{width:100%;max-width:520px;border-radius:14px;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+
+/* ---- Aviso y anuncios ---- */
+.aviso-pagina{max-width:1100px;margin:0 auto;padding:14px 18px;border-radius:12px;border:1px solid rgba(255,90,90,.5);background:rgba(255,90,90,.12);color:#ffd2d2;text-align:left}
+.aviso-pagina a{color:#ffd27a}
 .ad{margin:28px auto 0;min-height:90px;max-width:728px;display:flex;justify-content:center}
+
+/* ---- Contenido ---- */
 main{max-width:980px;margin:0 auto;padding:0 6vw 80px}
 section{margin-top:56px}
 h2{font:700 30px Bahnschrift,"Segoe UI",sans-serif;margin:0 0 16px;letter-spacing:.01em}
@@ -63,10 +72,20 @@ table{width:100%;border-collapse:collapse}
 .tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:rgba(255,138,61,.15);color:var(--a);margin-left:8px;vertical-align:middle}
 .note{border-left:4px solid #ffb74d;background:rgba(255,183,77,.08);padding:14px 18px;border-radius:10px;color:var(--ink);margin-top:14px}
 .note b{color:#ffd27a}
-.native{margin:56px auto 0;max-width:980px;min-height:120px}
+.faq details{border-bottom:1px solid var(--line);padding:14px 0}
+.faq details:first-child{padding-top:0}
+.faq summary{cursor:pointer;font:700 17px Bahnschrift,"Segoe UI",sans-serif;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"+ ";color:var(--a)}
+.faq details[open] summary::before{content:"− "}
+.faq p{color:var(--mut);margin:10px 0 0}
 .ad-pie{margin:40px auto 0;min-height:50px;max-width:320px;display:flex;justify-content:center}
 footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border-top:1px solid var(--line)}
-@media(max-width:700px){.hero h1{font-size:38px}nav a{margin-left:10px;font-size:14px}}
+@media(max-width:800px){
+  .hero{grid-template-columns:1fr;text-align:center}
+  .hero-texto h1{text-align:center;font-size:38px}
+  nav a{margin-left:10px;font-size:14px}
+}
 </style>
 </head>
 <body>
@@ -78,8 +97,7 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
     <h2 id="alerta-titulo">¡ALERTA!</h2>
     <p class="sub">No uses las versiones 26 de Minecraft sin revisar tus resource packs.</p>
     <ul>
-      <li>Se detectó una vulnerabilidad en las veriones 1.20.5 - 1.21.11 en la conexion
-      </li>De Servidores y Instalaciones de Resource Packs</li>
+      <li>Se detectó una vulnerabilidad en la conexión con servidores y en la instalación de resource packs.</li>
       <li>Usa solo resource packs de confianza.</li>
       <li>Únete solo a servidores de confianza.</li>
       <li>No instales mods con nombres como <b>Minecraft2Shell</b>.</li>
@@ -92,18 +110,28 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
   <a class="brand" href="#inicio"><i></i>ItaLauncher</a>
   <nav>
     <a href="#instalar">Instalar</a>
+    <a href="#preguntas">Preguntas</a>
     <a href="#requisitos">Requisitos</a>
     <a href="#novedades">Novedades 1.0.2</a>
-    <a href="#notas">Notas</a>
   </nav>
 </header>
 
 <div class="hero" id="inicio">
-  <h1>El launcher de Minecraft <span>que se configura a tu gusto</span></h1>
-  <p>Juega Vanilla, Fabric o Forge, instala mods desde Modrinth o CurseForge, guarda tus servidores y diagnostica los cierres del juego. Todo en una sola aplicación de escritorio.</p>
-  <a class="btn" href="gracias.html">Descargar ItaLauncher 1.0.2</a>
-  <div class="meta">Windows 10 / 11 de 64 bits · Versión 1.0.2 · Tamaño aprox. 80 MB</div>
+  <div class="hero-texto">
+    <h1>ItaLauncher <span>el launcher de Minecraft que se configura a tu gusto</span></h1>
+    <p>Juega Vanilla, Fabric o Forge, instala mods desde Modrinth o CurseForge, guarda tus servidores y diagnostica los cierres del juego. Todo en una sola aplicación de escritorio.</p>
+    <a class="btn" href="gracias.html">Descargar ItaLauncher 1.0.2</a>
+    <div class="meta">Windows 10 / 11 de 64 bits · Versión 1.0.2 · Tamaño aprox. 80 MB</div>
+  </div>
+  <div class="hero-imagen">
+    <img src="https://i.imgur.com/aSoviWn.png" alt="Pantalla de inicio de ItaLauncher">
+  </div>
+</div>
 
+<div style="padding:0 6vw">
+  <div class="aviso-pagina" style="margin:0 auto;max-width:1100px">
+    <b>⚠ Seguridad:</b> no aceptes resource packs ni texture packs de servidores o sitios que no conozcas. Más información: <a href="https://wurst.wiki/minecraft2shell" target="_blank" rel="noopener">wurst.wiki/minecraft2shell</a>.
+  </div>
   <div class="ad">
     <script>
       atOptions = {
@@ -118,10 +146,6 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
   </div>
 </div>
 
-<div class="aviso-pagina" style="margin:0 6vw">
-  <b>⚠ Seguridad:</b> no aceptes resource packs ni texture packs de servidores o sitios que no conozcas. Más información: <a href="https://wurst.wiki/minecraft2shell" target="_blank" rel="noopener">wurst.wiki/minecraft2shell</a>.
-</div>
-
 <main>
 
   <section id="instalar">
@@ -133,7 +157,7 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
       </div></div>
       <div class="step"><span class="num">2</span><div>
         <h3>Extráelo en una carpeta</h3>
-        <p>Clic derecho sobre el <code>.zip</code> → <b>Extraer todo</b>. Elige una carpeta donde tengas espacio libre, por ejemplo <code>D:\ItaLauncher</code>. No hace falta ser administrador.</p>
+        <p>Clic derecho sobre el <code>.zip</code> → <b>Extraer todo</b>. Elige una carpeta con espacio libre, por ejemplo <code>D:\ItaLauncher</code>. No hace falta ser administrador.</p>
       </div></div>
       <div class="step"><span class="num">3</span><div>
         <h3>Abre ItaLauncher.exe</h3>
@@ -154,10 +178,47 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
     </div>
   </section>
 
-  <div class="native">
-    <script async fetchpriority="high" data-cfasync="false" src="https://bellnewyork.org/21/6555d677534567666a9f7ecb8f915488"></script>
-    <div id="container-6555d677534567666a9f7ecb8f915488"></div>
-  </div>
+  <section id="preguntas" class="faq">
+    <h2>Preguntas frecuentes</h2>
+    <div class="card">
+      <details>
+        <summary>¿Es seguro?</summary>
+        <p>ItaLauncher no activa resource packs automáticamente, pide confirmación antes de instalar cualquier mod y no envía tus datos a nadie. Aun así, no aceptes packs de servidores o sitios que no conozcas. El código del launcher es visible para revisarlo.</p>
+      </details>
+      <details>
+        <summary>¿Necesito cuenta de Minecraft?</summary>
+        <p>No. El launcher entra con el nombre de usuario que escribas, en modo sin cuenta. Si tu cuenta oficial es premium, este launcher no la inicia.</p>
+      </details>
+      <details>
+        <summary>¿Por qué sale el aviso de SmartScreen?</summary>
+        <p>Porque el programa no está firmado digitalmente todavía. Es normal en programas nuevos. Pulsa <b>Más información</b> → <b>Ejecutar de todas formas</b>.</p>
+      </details>
+      <details>
+        <summary>¿Funciona en Mac o Linux?</summary>
+        <p>Por ahora solo en Windows 10 y 11 de 64 bits.</p>
+      </details>
+      <details>
+        <summary>¿Necesito instalar Java?</summary>
+        <p>No. El launcher descarga la versión de Java que necesita cada versión del juego.</p>
+      </details>
+      <details>
+        <summary>¿Por qué no aparecen mods para 1.8.9 con Fabric?</summary>
+        <p>Fabric existe desde la versión 1.14. Para 1.8.9 usa Forge, o elige una versión más nueva para Fabric.</p>
+      </details>
+      <details>
+        <summary>¿Dónde se guardan mis datos?</summary>
+        <p>La configuración se guarda junto a <code>ItaLauncher.exe</code>. Los juegos, mundos y mods se guardan en la carpeta .minecraft que elijas.</p>
+      </details>
+      <details>
+        <summary>¿Cómo busco mods de CurseForge?</summary>
+        <p>Consigue una clave de API gratuita en console.curseforge.com y pégala en <b>Ajustes → Mods: CurseForge</b>. Modrinth no necesita clave.</p>
+      </details>
+      <details>
+        <summary>El juego se cierra solo, ¿qué hago?</summary>
+        <p>Abre <b>Diagnóstico</b> y pulsa <b>Analizar último cierre</b>. Te dirá qué pasó y te dará botones para arreglarlo. También puedes probar el <b>modo seguro</b>, que abre el juego sin mods.</p>
+      </details>
+    </div>
+  </section>
 
   <section id="requisitos">
     <h2>Requisitos</h2>
@@ -181,10 +242,8 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
         <h3>Juego</h3>
         <ul>
           <li>Instalación de Minecraft Vanilla, Fabric y Forge.</li>
-          <li>Elección de versión con búsqueda, incluidas snapshots y versiones antiguas.</li>
           <li>Memoria RAM independiente para cada versión.</li>
           <li>Límite de FPS, tamaño de ventana y pantalla completa.</li>
-          <li>Argumentos extra de Java para usuarios avanzados.</li>
           <li>Conexión directa a servidores guardados, con consulta de estado.</li>
         </ul>
       </div>
@@ -192,48 +251,28 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
         <h3>Mods</h3>
         <ul>
           <li>Búsqueda en <b>Modrinth</b> y <b>CurseForge</b>, con hasta 10 páginas por búsqueda.</li>
-          <li>Instalación de dependencias obligatorias de todos los niveles.</li>
-          <li>Los mods ya instalados aparecen marcados y no se pueden volver a instalar.</li>
+          <li>Confirmación antes de instalar cada mod, con autor y enlace.</li>
+          <li>Los mods ya instalados aparecen marcados.</li>
           <li>Activar, desactivar y quitar mods sin borrar archivos a mano.</li>
-          <li>Importar archivos <code>.jar</code> propios.</li>
         </ul>
       </div>
       <div class="card">
         <h3>Diagnóstico</h3>
         <ul>
           <li>Analizador del último cierre del juego, con explicación en lenguaje simple.</li>
-          <li>Botones para aplicar la solución, como quitar un mod o subir la RAM.</li>
           <li>Modo seguro: abre el juego sin mods para saber si el problema viene de ellos.</li>
+          <li>Lista de resource packs activos.</li>
         </ul>
       </div>
       <div class="card">
         <h3>Launcher</h3>
         <ul>
           <li>Ventana de escritorio, sin consola ni barra de direcciones.</li>
-          <li>Cinco temas: Oscuro, Claro, Noche, Bosque y Atardecer, con color de acento propio.</li>
-          <li>Respaldo de mundos con un clic.</li>
-          <li>Exportar e importar la configuración para usarla en otra PC.</li>
-          <li>Limpieza de caché y cálculo del espacio ocupado.</li>
-          <li>Atajos de teclado: Ctrl+J para jugar y Ctrl+1 a Ctrl+5 para cambiar de sección.</li>
+          <li>Cinco temas con color de acento propio.</li>
+          <li>Respaldo de mundos, exportar e importar configuración.</li>
+          <li>Alerta de seguridad y cuentas con confirmación para borrar.</li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <section id="notas">
-    <h2>Notas importantes</h2>
-    <div class="card">
-      <h3>Seguridad</h3>
-      <p>ItaLauncher no activa resource packs automáticamente. Aun así, no aceptes packs de servidores o sitios que no conozcas, y no instales mods con nombres sospechosos.</p>
-      <h3 style="margin-top:18px">CurseForge necesita una clave</h3>
-      <p>Para buscar mods en CurseForge hay que pegar una clave de API gratuita en <b>Ajustes → Mods: CurseForge</b>. Se consigue en console.curseforge.com. Modrinth no necesita clave.</p>
-      <h3 style="margin-top:18px">Dónde se guardan tus datos</h3>
-      <p>La configuración (<code>config.json</code>) y las imágenes del menú se guardan junto a <code>ItaLauncher.exe</code>. Los juegos, mundos y mods se guardan en la carpeta .minecraft que elijas. Para desinstalar, borra la carpeta de la aplicación y, si quieres, también la de .minecraft.</p>
-      <h3 style="margin-top:18px">Aviso de Windows SmartScreen</h3>
-      <p>Como el programa no está firmado digitalmente, Windows puede mostrar una advertencia de "editor desconocido" la primera vez. Es normal. Descárgalo solo desde la página oficial.</p>
-      <h3 style="margin-top:18px">Cuentas</h3>
-      <p>ItaLauncher entra con el nombre de usuario que escribas, sin cuenta de Minecraft. Úsalo con servidores que acepten ese tipo de acceso, o si ya tienes cuenta oficial del juego, sabe que este launcher no la inicia.</p>
-      <div class="note"><b>Problemas conocidos:</b> algunos mods pueden chocar entre sí. Si el juego se cierra, usa <b>Diagnóstico</b> para revisarlo.</div>
     </div>
   </section>
 
@@ -256,9 +295,6 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 6vw;border
 <footer>
   ItaLauncher 1.0.2 · Hecho con cariño para jugar a Minecraft a tu manera.
 </footer>
-
-<!-- Social bar de Adsterra -->
-<script data-cfasync="false" src="https://bellnewyork.org/14/c1188eb356fec1a36505a05d1b4018df"></script>
 
 <!-- Popunder de Adsterra -->
 <script data-cfasync="false" src="https://accountut.com/1/db493692097b75c89b1a22370ff91c83"></script>
